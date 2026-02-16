@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClubOverdose")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6489a44dc92c229e38b31c52e40ac46c29a7681")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClubOverdose")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClubOverdose")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

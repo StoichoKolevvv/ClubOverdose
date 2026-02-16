@@ -106,6 +106,9 @@ namespace ClubOverdose.Data.Migrations
                     b.Property<DateTime>("DateAdded")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("MenuId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -120,6 +123,8 @@ namespace ClubOverdose.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MenuId");
 
                     b.HasIndex("TypeId");
 
@@ -155,6 +160,23 @@ namespace ClubOverdose.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("ClubOverdose.Data.Menu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Menus");
                 });
 
             modelBuilder.Entity("ClubOverdose.Data.Reservation", b =>
@@ -343,13 +365,21 @@ namespace ClubOverdose.Data.Migrations
 
             modelBuilder.Entity("ClubOverdose.Data.Drink", b =>
                 {
-                    b.HasOne("ClubOverdose.Data.Type", "Type")
+                    b.HasOne("ClubOverdose.Data.Menu", "Menu")
+                        .WithMany("Drinks")
+                        .HasForeignKey("MenuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClubOverdose.Data.Type", "Types")
                         .WithMany("Drinks")
                         .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Type");
+                    b.Navigation("Menu");
+
+                    b.Navigation("Types");
                 });
 
             modelBuilder.Entity("ClubOverdose.Data.Reservation", b =>
@@ -430,6 +460,11 @@ namespace ClubOverdose.Data.Migrations
             modelBuilder.Entity("ClubOverdose.Data.Event", b =>
                 {
                     b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("ClubOverdose.Data.Menu", b =>
+                {
+                    b.Navigation("Drinks");
                 });
 
             modelBuilder.Entity("ClubOverdose.Data.Type", b =>

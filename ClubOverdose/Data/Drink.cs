@@ -8,6 +8,8 @@
 
         public int TypeId { get; set; }
         public Type Types { get; set; }
+        public int MenuId { get; set; }
+        public Menu Menu { get; set; }
 
         public decimal Price { get; set; }
         public int Volume { get; set; }

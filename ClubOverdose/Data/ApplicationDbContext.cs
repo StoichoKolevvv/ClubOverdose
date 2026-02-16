@@ -14,5 +14,6 @@ namespace ClubOverdose.Data
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Drink> Drinks { get; set; }
         public DbSet<Type> Types { get; set; }
+        public DbSet<Menu> Menus { get; set; }
     }
 }
