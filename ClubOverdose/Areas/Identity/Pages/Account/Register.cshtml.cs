@@ -59,17 +59,31 @@ namespace ClubOverdose.Areas.Identity.Pages.Account
        
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage ="This field is mandatory")]
             [Display(Name = "User Name")]
             public string UserName { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "This field is mandatory")]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Required(ErrorMessage = "This field is mandatory")]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+
+
+            [Required(ErrorMessage = "This field is mandatory")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            
-            [Required]
+            [Required(ErrorMessage = "This field is mandatory")]
+            [EmailAddress]
+            [Display(Name = "Phone Number")]
+            public string PhoneNumber { get; set; }
+
+            [Required(ErrorMessage = "This field is mandatory")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
@@ -95,15 +109,24 @@ namespace ClubOverdose.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+                //var user = CreateUser();
+
+                Client user = new Client();
+
+                user.UserName = Input.UserName;
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                user.Email = Input.Email;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+                    await _userManager.AddToRoleAsync(user, "Client");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
