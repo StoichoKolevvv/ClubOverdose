@@ -52,12 +52,92 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Shared/Error.cshtml]
@@ -70,6 +150,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/_ViewImports.cshtml]
