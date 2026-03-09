@@ -48,8 +48,8 @@ namespace ClubOverdose.Controllers
         // GET: Drinks/Create
         public IActionResult Create()
         {
-            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Id");
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id");
+            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Name");
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Name");
             return View();
         }
 
@@ -58,16 +58,18 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,TypeId,MenuId,Price,Volume,DateAdded")] Drink drink)
+        public async Task<IActionResult> Create([Bind("Name,TypeId,MenuId,Price,Volume,DateAdded")] Drink drink)
         {
+            drink.DateAdded = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 _context.Add(drink);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Id", drink.MenuId);
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id", drink.TypeId);
+            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Name", drink.MenuId);
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Name", drink.TypeId);
             return View(drink);
         }
 
@@ -84,8 +86,8 @@ namespace ClubOverdose.Controllers
             {
                 return NotFound();
             }
-            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Id", drink.MenuId);
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id", drink.TypeId);
+            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Name", drink.MenuId);
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Name", drink.TypeId);
             return View(drink);
         }
 
@@ -100,6 +102,8 @@ namespace ClubOverdose.Controllers
             {
                 return NotFound();
             }
+
+            drink.DateAdded = DateTime.Now;
 
             if (ModelState.IsValid)
             {
@@ -121,8 +125,8 @@ namespace ClubOverdose.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Id", drink.MenuId);
-            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Id", drink.TypeId);
+            ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Name", drink.MenuId);
+            ViewData["TypeId"] = new SelectList(_context.Types, "Id", "Name", drink.TypeId);
             return View(drink);
         }
 

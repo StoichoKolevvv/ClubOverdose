@@ -24,6 +24,9 @@ namespace ClubOverdose
 
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddControllers(op => op.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+            
+
             var app = builder.Build();
 
             app.PrepareDataBase().Wait();
