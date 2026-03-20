@@ -6,16 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClubOverdose.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace ClubOverdose.Controllers
 {
+    [Authorize]
     public class ReservationsController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<Client> _userManager;
 
-        public ReservationsController(ApplicationDbContext context)
+        public ReservationsController(ApplicationDbContext context, 
+                                      UserManager<Client> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Reservations
@@ -48,7 +55,7 @@ namespace ClubOverdose.Controllers
         // GET: Reservations/Create
         public IActionResult Create()
         {
-            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id");
+            //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id");
             ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id");
             return View();
         }
@@ -60,13 +67,16 @@ namespace ClubOverdose.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ClientId,EventId,NumberOfGuests,ReservationDate")] Reservation reservation)
         {
+            reservation.ReservationDate = DateTime.Now;
+            reservation.ClientId = _userManager.GetUserId(User);
+
             if (ModelState.IsValid)
             {
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
+            //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
             ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventId);
             return View(reservation);
         }
@@ -84,7 +94,7 @@ namespace ClubOverdose.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
+            //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
             ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventId);
             return View(reservation);
         }
@@ -121,7 +131,7 @@ namespace ClubOverdose.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
+            //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
             ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventId);
             return View(reservation);
         }

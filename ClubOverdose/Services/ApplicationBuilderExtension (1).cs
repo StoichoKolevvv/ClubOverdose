@@ -44,7 +44,7 @@ namespace ClubOverdose.Services
 
             //Seed Roles
             await roleManager.CreateAsync(new IdentityRole("Admin"));
-            await roleManager.CreateAsync(new IdentityRole("User"));
+            await roleManager.CreateAsync(new IdentityRole("Client"));
             await roleManager.CreateAsync(new IdentityRole("Guest"));
         }
 

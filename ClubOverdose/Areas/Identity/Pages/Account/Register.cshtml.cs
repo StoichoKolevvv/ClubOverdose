@@ -79,7 +79,7 @@ namespace ClubOverdose.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required(ErrorMessage = "This field is mandatory")]
-            [EmailAddress]
+            [Phone]
             [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
 
@@ -118,7 +118,7 @@ namespace ClubOverdose.Areas.Identity.Pages.Account
                 user.LastName = Input.LastName;
                 user.Email = Input.Email;
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
