@@ -56,7 +56,7 @@ namespace ClubOverdose.Controllers
         public IActionResult Create()
         {
             //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id");
+            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Name");
             return View();
         }
 
@@ -65,25 +65,26 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ClientId,EventId,NumberOfGuests,ReservationDate")] Reservation reservation)
+        public async Task<IActionResult> Create([Bind("EventId,NumberOfGuests")] Reservation reservation)
         {
             reservation.ReservationDate = DateTime.Now;
             reservation.ClientId = _userManager.GetUserId(User);
 
             if (ModelState.IsValid)
             {
-                _context.Add(reservation);
+                _context.Reservations.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
-            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventId);
+            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Name", reservation.EventId);
             return View(reservation);
         }
 
         // GET: Reservations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -95,7 +96,7 @@ namespace ClubOverdose.Controllers
                 return NotFound();
             }
             //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
-            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventId);
+            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Name", reservation.EventId);
             return View(reservation);
         }
 
@@ -104,18 +105,22 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,EventId,NumberOfGuests,ReservationDate")] Reservation reservation)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EventId,NumberOfGuests")] Reservation reservation)
         {
+
             if (id != reservation.Id)
             {
                 return NotFound();
             }
 
+            reservation.ReservationDate = DateTime.Now;
+            reservation.ClientId = _userManager.GetUserId(User);
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(reservation);
+                    _context.Reservations.Update(reservation);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -132,7 +137,7 @@ namespace ClubOverdose.Controllers
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
-            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventId);
+            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Name", reservation.EventId);
             return View(reservation);
         }
 
