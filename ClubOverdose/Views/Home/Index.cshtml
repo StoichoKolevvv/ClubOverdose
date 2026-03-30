@@ -1,8 +1,48 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Feel the <span>Night</span><br />
+                Live the Energy
+            </h1>
+            <p class="hero-text">
+                Welcome to ClubOverdose — where music, lights and unforgettable nights come together.
+                Discover the hottest events, reserve your spot, and experience nightlife on another level.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+                <a asp-controller="Events" asp-action="Index" class="btn btn-neon">Explore Events</a>
+                <a asp-controller="Home" asp-action="About" class="btn btn-outline-light">About Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <h2 class="section-title">Why Choose ClubOverdose</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h3>Top DJs</h3>
+                    <p>Experience incredible music from the best local and international DJs every weekend.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h3>Premium Atmosphere</h3>
+                    <p>Modern lighting, stylish interior, and a unique club vibe designed for unforgettable nights.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h3>Easy Reservations</h3>
+                    <p>Book your place online in seconds and enjoy the event without stress or waiting.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
