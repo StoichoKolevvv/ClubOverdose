@@ -1,48 +1,108 @@
 ﻿@model ClubOverdose.Data.Event
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Event Details";
 }
 
-<h1>Details</h1>
+<section class="event-hero" style='background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+    url("@(string.IsNullOrEmpty(Model.ImageUrl)
+                                    ? "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600&q=80"
+                                    : Model.ImageUrl)") center/cover no-repeat;'>
 
-<div>
-    <h4>Event</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EventDateTime)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EventDateTime)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastUpdatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastUpdatedDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="container">
+        <div class="event-hero-content">
+            <h1>@Model.Name</h1>
+            <p class="event-date-big">
+                @Model.EventDateTime.ToString("dd MMMM yyyy - HH:mm")
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container pb-5">
+    <div class="row g-4">
+
+        <!-- LEFT SIDE -->
+        <div class="col-md-8">
+            <div class="event-details-card">
+                <div class="event-details-card">
+                    <h3>About Event</h3>
+
+                    @{
+                        var description = Model.Description ?? "";
+                        string? videoId = null;
+
+                        var match = System.Text.RegularExpressions.Regex.Match(
+                        description,
+                        @"(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]+)",
+                        System.Text.RegularExpressions.RegexOptions.IgnoreCase
+                        );
+
+                        if (match.Success)
+                        {
+                            videoId = match.Groups[1].Value;
+                            description = System.Text.RegularExpressions.Regex.Replace(
+                            description,
+                            @"https?:\/\/[^\s]+",
+                            ""
+                            ).Trim();
+                        }
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(description))
+                    {
+                        <p>@description</p>
+                    }
+                    else
+                    {
+                        <p>No description available for this event.</p>
+                    }
+
+                    @if (!string.IsNullOrEmpty(videoId))
+                    {
+                        <div class="mt-4">
+                            <iframe width="100%"
+                                    height="350"
+                                    src="https://www.youtube-nocookie.com/embed/@videoId"
+                                    title="Event video"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-md-4">
+            <div class="event-details-card">
+                <h3>Event Info</h3>
+
+                <p><strong>📅 Date:</strong> @Model.EventDateTime.ToString("f")</p>
+                <p><strong>🕒 Last Update:</strong> @Model.LastUpdatedDate.ToString("dd MMM yyyy")</p>
+
+                <a asp-controller="Reservations"
+                   asp-action="Create"
+                   asp-route-eventId="@Model.Id"
+                   class="btn btn-neon w-100 mt-3">
+                    Book This Event
+                </a>
+
+                <a asp-action="Edit"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-outline-light w-100 mt-2">
+                    Edit Event
+                </a>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary w-100 mt-2">
+                    Back to Events
+                </a>
+            </div>
+        </div>
+
+    </div>
 </div>

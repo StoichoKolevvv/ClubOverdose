@@ -111,7 +111,8 @@ a {
 .feature-card,
 .about-card,
 .contact-card,
-.form-card {
+.form-card,
+.event-details-card {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
@@ -125,14 +126,16 @@ a {
     .feature-card:hover,
     .about-card:hover,
     .contact-card:hover,
-    .form-card:hover {
+    .form-card:hover
+    {
         transform: translateY(-6px);
         border-color: rgba(168, 85, 247, 0.35);
     }
 
     .feature-card h3,
     .about-card h3,
-    .contact-card h3 {
+    .contact-card h3,
+    .event-details-card h3 {
         color: #ffffff;
         margin-bottom: 15px;
         font-weight: 700;
@@ -140,7 +143,8 @@ a {
 
     .feature-card p,
     .about-card p,
-    .contact-card p {
+    .contact-card p,
+    .event-details-card p {
         color: #d1d5db;
         line-height: 1.7;
     }
@@ -221,4 +225,97 @@ a {
 
 .text-danger {
     color: #fca5a5 !important;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+    height: 100%;
+}
+
+    .event-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(168, 85, 247, 0.4);
+    }
+
+.event-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+    .event-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.event-date {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(90deg, #a855f7, #ec4899);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.event-body {
+    padding: 20px;
+}
+
+    .event-body h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+.event-description {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    margin-bottom: 15px;
+    min-height: 72px;
+}
+
+.event-info {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.event-hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.event-hero-content {
+    color: white;
+}
+
+.event-hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.event-date-big {
+    color: #e879f9;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.btn-secondary {
+    border-radius: 12px;
+}
+
+.event-details-card iframe {
+    border-radius: 12px;
 }

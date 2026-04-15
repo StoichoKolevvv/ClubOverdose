@@ -1,59 +1,68 @@
 ﻿@model IEnumerable<ClubOverdose.Data.Event>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Events";
 }
 
-<h1>Index</h1>
+<section class="page-header">
+    <div class="container">
+        <h1>Events</h1>
+        <p>Discover upcoming parties and unforgettable nights.</p>
+    </div>
+</section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventDateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdatedDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventDateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdatedDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container pb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-white m-0">All Events</h2>
+        <a asp-action="Create" class="btn btn-neon">Create New Event</a>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="@(string.IsNullOrEmpty(item.ImageUrl)
+                                                         ? "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80"
+                                                         : item.ImageUrl)" alt="@item.Name" />
+
+                        <div class="event-date">
+                            @item.EventDateTime.ToString("dd MMM")
+                        </div>
+                    </div>
+
+                    <div class="event-body">
+                        <h3>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="text-white text-decoration-none">
+                                @item.Name
+                            </a>
+                        </h3>
+
+                        <p class="event-description">
+                            @(string.IsNullOrEmpty(item.Description)
+                                                    ? "No description available for this event."
+                                                    : item.Description)
+                    </p>
+
+                        <div class="event-info mb-2">
+                            <span>🕒 @item.EventDateTime.ToString("dd MMM yyyy, HH:mm")</span>
+                        </div>
+
+                        <div class="event-info mb-3">
+                            <small class="text-light">
+                                Updated: @item.LastUpdatedDate.ToString("dd MMM yyyy")
+                            </small>
+                        </div>
+
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-light">Details</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                }
+    </div>
+</div>
