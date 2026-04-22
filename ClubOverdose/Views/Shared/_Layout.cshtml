@@ -11,10 +11,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark custom-navbar">
             <div class="container">
-                <a class="navbar-brand brand-logo" asp-controller="Home" asp-action="Index">
-                    ClubOverdose
+                <a class="navbar-brand logo-wrapper" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png" alt="ClubOverdose Logo" class="logo-img" />
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -35,6 +35,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Contact">Contacts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Drinks" asp-action="Index">Menu</a>
                         </li>
                         <li class="nav-item ms-lg-2">
                             <a class="btn btn-neon" asp-controller="Reservations" asp-action="Create">Book Now</a>
@@ -57,6 +60,20 @@
     </footer>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.getElementById("mainNavbar");
+
+            if (window.scrollY > 20) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

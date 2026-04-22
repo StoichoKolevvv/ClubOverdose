@@ -20,6 +20,19 @@
     <div class="row g-4">
         @foreach (var item in Model)
         {
+            var desc = item.Description ?? "";
+
+            desc = System.Text.RegularExpressions.Regex.Replace(
+            desc,
+            @"https?:\/\/[^\s]+",
+            ""
+            ).Trim();
+
+            if (string.IsNullOrWhiteSpace(desc))
+            {
+                desc = "No description available for this event.";
+            }
+
             <div class="col-md-4">
                 <div class="event-card">
                     <div class="event-image">
@@ -27,10 +40,10 @@
                                                          ? "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80"
                                                          : item.ImageUrl)" alt="@item.Name" />
 
-                        <div class="event-date">
-                            @item.EventDateTime.ToString("dd MMM")
-                        </div>
+                    <div class="event-date">
+                        @item.EventDateTime.ToString("dd MMM")
                     </div>
+                </div>
 
                     <div class="event-body">
                         <h3>
@@ -40,10 +53,8 @@
                         </h3>
 
                         <p class="event-description">
-                            @(string.IsNullOrEmpty(item.Description)
-                                                    ? "No description available for this event."
-                                                    : item.Description)
-                    </p>
+                            @(desc.Length > 100 ? desc.Substring(0, 100) + "..." : desc)
+                        </p>
 
                         <div class="event-info mb-2">
                             <span>🕒 @item.EventDateTime.ToString("dd MMM yyyy, HH:mm")</span>

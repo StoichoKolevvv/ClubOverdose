@@ -58,7 +58,7 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,TypeId,MenuId,Price,Volume,DateAdded")] Drink drink)
+        public async Task<IActionResult> Create([Bind("Name,TypeId,MenuId,Price,Volume")] Drink drink)
         {
             drink.DateAdded = DateTime.Now;
 

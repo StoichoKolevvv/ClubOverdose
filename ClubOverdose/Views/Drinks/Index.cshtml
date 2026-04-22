@@ -1,65 +1,62 @@
 ﻿@model IEnumerable<ClubOverdose.Data.Drink>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Menu";
+    var groupedDrinks = Model
+        .OrderBy(d => d.Types != null ? d.Types.Name : "Other")
+        .ThenBy(d => d.Name)
+        .GroupBy(d => d.Types != null ? d.Types.Name : "Other");
 }
 
-<h1>Index</h1>
+<section class="page-header">
+    <div class="container">
+        <h1>Menu</h1>
+        <p>Discover our premium drinks and club favorites.</p>
+    </div>
+</section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Types)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Menu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Volume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateAdded)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Types.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Menu.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Volume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateAdded)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container pb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-white m-0">Drinks Menu</h2>
+        <a asp-action="Create" class="btn btn-neon">Add Drink</a>
+    </div>
+
+    @foreach (var group in groupedDrinks)
+    {
+        <div class="menu-section mb-5">
+            <div class="menu-section-header mb-4">
+                <h2>@group.Key</h2>
+            </div>
+
+            <div class="row g-4">
+                @foreach (var item in group)
+                {
+                    <div class="col-md-4">
+                        <div class="menu-card">
+                            <div class="menu-card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h3 class="mb-0">@item.Name</h3>
+                                    <span class="menu-price">@item.Price.ToString("0.00") лв.</span>
+                                </div>
+
+                                <p class="menu-meta mb-2">
+                                    <strong>Volume:</strong> @item.Volume ml
+                                </p>
+
+                                <p class="menu-meta mb-3">
+                                    <strong>Added:</strong> @item.DateAdded.ToString("dd MMM yyyy")
+                                </p>
+
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-light">Details</a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

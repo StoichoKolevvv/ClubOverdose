@@ -319,3 +319,257 @@ a {
 .event-details-card iframe {
     border-radius: 12px;
 }
+.menu-section-header h2 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0;
+    position: relative;
+    display: inline-block;
+}
+
+    .menu-section-header h2::after {
+        content: "";
+        display: block;
+        width: 60%;
+        height: 4px;
+        margin-top: 8px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #a855f7, #ec4899);
+    }
+
+.menu-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+    height: 100%;
+}
+
+    .menu-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(168, 85, 247, 0.35);
+    }
+
+.menu-card-body {
+    padding: 24px;
+}
+
+    .menu-card-body h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: white;
+    }
+
+.menu-meta {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.menu-price {
+    display: inline-block;
+    background: linear-gradient(90deg, #a855f7, #ec4899);
+    color: white;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.drink-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drink-label {
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+.drink-value {
+    color: white;
+    font-weight: 700;
+    text-align: right;
+}
+/* Dropdown (select) стил */
+.custom-form .form-select {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 12px 14px;
+    appearance: none; /* маха default стрелката */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* стрелка (custom) */
+.custom-form .form-select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+    /* focus ефект */
+    .custom-form .form-select:focus {
+        border-color: #a855f7;
+        box-shadow: 0 0 0 0.2rem rgba(168, 85, 247, 0.25);
+        outline: none;
+    }
+
+/* dropdown options (ограничено) */
+select option {
+    background: #111827;
+    color: white;
+}
+/* маха стрелките в Chrome, Edge, Safari */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* маха стрелките във Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-danger {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* wrapper */
+.logo-wrapper {
+    position: relative;
+}
+
+/* самото лого */
+.logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.4));
+}
+
+/* неон glow ефект */
+.logo-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 12px;
+    background: radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+/* hover ефект */
+.logo-wrapper:hover::after {
+    opacity: 1;
+}
+
+.logo-wrapper:hover .logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(236, 72, 153, 0.7));
+}
+.custom-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: rgba(10, 10, 20, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+    .custom-navbar.scrolled {
+        background: rgba(8, 8, 18, 0.95);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+    }
+.navbar .nav-link {
+    position: relative;
+}
+.custom-navbar.scrolled .logo-img {
+    box-shadow: 0 0 18px rgba(236, 72, 153, 0.45);
+}
+
+    .navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 2px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #a855f7, #ec4899);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.25s ease;
+    }
+
+    .navbar .nav-link:hover::after {
+        transform: scaleX(1);
+    }
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+main {
+    padding-top: 90px;
+}
+@keyframes pulseGlow {
+    0% {
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.5), transparent 70%);
+    }
+
+    50% {
+        background: radial-gradient(circle, rgba(236, 72, 153, 0.6), transparent 70%);
+    }
+
+    100% {
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.5), transparent 70%);
+    }
+}
+.logo-img {
+    height: 48px;
+    width: 48px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    /* основен glow */
+    animation: neonPulse 2s infinite alternate;
+}
+
+/* пулсиране + смяна на цветове */
+@keyframes neonPulse {
+    0% {
+        filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 12px rgba(168, 85, 247, 0.4));
+    }
+
+    33% {
+        filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.7)) drop-shadow(0 0 16px rgba(236, 72, 153, 0.5));
+    }
+
+    66% {
+        filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.7)) drop-shadow(0 0 16px rgba(59, 130, 246, 0.5));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.9)) drop-shadow(0 0 20px rgba(236, 72, 153, 0.7));
+    }
+}
