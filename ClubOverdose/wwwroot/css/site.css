@@ -573,3 +573,37 @@ main {
         filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.9)) drop-shadow(0 0 20px rgba(236, 72, 153, 0.7));
     }
 }
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    min-height: 250px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+    .gallery-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+        min-height: 520px;
+    }
+
+    .gallery-item.wide {
+        grid-column: span 2;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }

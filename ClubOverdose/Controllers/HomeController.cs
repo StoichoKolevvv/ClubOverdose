@@ -18,7 +18,10 @@ namespace ClubOverdose.Controllers
             return View();
         }
 
-       
+        public IActionResult Gallery()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
