@@ -70,7 +70,6 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\videos\background(1).mp4
 wwwroot\videos\background.mp4
 C:\Users\1212-6\Desktop\Stancho 1312a\diplomen\ClubOverdose\ClubOverdose\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\1212-6\Desktop\Stancho 1312a\diplomen\ClubOverdose\ClubOverdose\wwwroot\lib\jquery\dist\jquery.slim.min.map
