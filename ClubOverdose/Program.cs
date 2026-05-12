@@ -1,6 +1,7 @@
 using ClubOverdose.Data;
 using ClubOverdose.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClubOverdose
@@ -23,13 +24,14 @@ namespace ClubOverdose
                 .AddDefaultTokenProviders();
 
             builder.Services.AddControllersWithViews();
+            builder.Services.AddTransient<IEmailSender, Microsoft.AspNetCore.Identity.UI.Services.NoOpEmailSender>();
 
             builder.Services.AddControllers(op => op.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
             
 
             var app = builder.Build();
 
-            app.PrepareDataBase().Wait();
+            app.PrepareDataBase().GetAwaiter().GetResult();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -46,6 +48,7 @@ namespace ClubOverdose
             app.UseHttpsRedirection();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();

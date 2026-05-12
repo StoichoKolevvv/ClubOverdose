@@ -1,52 +1,62 @@
 ﻿@model ClubOverdose.Data.Event
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Event";
 }
 
-<h1>Edit</h1>
-
-<h4>Event</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl" class="form-label"></label>
-                <input asp-for="ImageUrl" class="form-control" placeholder="Paste image URL" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EventDateTime" class="control-label"></label>
-                <input asp-for="EventDateTime" class="form-control" />
-                <span asp-validation-for="EventDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastUpdatedDate" class="control-label"></label>
-                <input asp-for="LastUpdatedDate" class="form-control" />
-                <span asp-validation-for="LastUpdatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<section class="page-header">
+    <div class="container">
+        <h1>Edit Event</h1>
+        <p>Update the selected event details.</p>
     </div>
-</div>
+</section>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="form-card">
+                <form asp-action="Edit" class="custom-form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="ImageUrl" class="form-label"></label>
+                        <input asp-for="ImageUrl" class="form-control" placeholder="Paste image URL" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="EventDateTime" class="form-label"></label>
+                        <input asp-for="EventDateTime" class="form-control" />
+                        <span asp-validation-for="EventDateTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="LastUpdatedDate" class="form-label"></label>
+                        <input asp-for="LastUpdatedDate" class="form-control" />
+                        <span asp-validation-for="LastUpdatedDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2 flex-wrap mt-4">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-action="Index" class="btn btn-outline-light">Back to Events</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

@@ -17,181 +17,181 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ClubOverdose
 build_property.RootNamespace = ClubOverdose
-build_property.ProjectDir = C:\Users\1212-6\Desktop\Stancho 1312a\diplomen\ClubOverdose\ClubOverdose\
+build_property.ProjectDir = D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\1212-6\Desktop\Stancho 1312a\diplomen\ClubOverdose\ClubOverdose
+build_property.MSBuildProjectDirectory = D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Create.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Drinks/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Delete.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Drinks/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Details.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Drinks/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Edit.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Drinks/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Drinks/Index.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Drinks/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Create.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Events/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Delete.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Events/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Details.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Events/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Edit.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Events/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Events/Index.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Events/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Home/About.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Home/Contacts.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Home/Contacts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Home/Gallery.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Home/Gallery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHYWxsZXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Home/Index.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Home/Privacy.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Create.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Menus/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Delete.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Menus/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Details.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Menus/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Edit.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Menus/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Menus/Index.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Menus/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Create.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Reservations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Delete.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Reservations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Details.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Reservations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Edit.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Reservations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Reservations/Index.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Reservations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Shared/Error.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Shared/_LoginPartial.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Create.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Types/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Delete.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Types/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Details.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Types/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Edit.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Types/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Types/Index.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Types/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/_ViewImports.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/_ViewStart.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/1212-6/Desktop/Stancho 1312a/diplomen/ClubOverdose/ClubOverdose/Views/Shared/_Layout.cshtml]
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-7c6rc4ystc

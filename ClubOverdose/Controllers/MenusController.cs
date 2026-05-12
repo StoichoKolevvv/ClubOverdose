@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClubOverdose.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ClubOverdose.Controllers
 {
@@ -43,6 +44,7 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Menus/Create
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +55,7 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Create([Bind("Id,Name")] Menu menu)
         {
             if (ModelState.IsValid)
@@ -65,6 +68,7 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Menus/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +89,7 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Menu menu)
         {
             if (id != menu.Id)
@@ -116,6 +121,7 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Menus/Delete/5
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,6 +142,7 @@ namespace ClubOverdose.Controllers
         // POST: Menus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var menu = await _context.Menus.FindAsync(id);

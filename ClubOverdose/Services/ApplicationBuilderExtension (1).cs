@@ -2,12 +2,25 @@
 using ClubOverdose.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace ClubOverdose.Services
 {
     public static class ApplicationBuilderExtension
     {
+        private const string SuperAdminRoleName = "SuperAdmin";
+        private const string AdminRoleName = "Admin";
+        private const string ClientRoleName = "Client";
+        private const string GuestRoleName = "Guest";
+
+        private const string SuperAdminUserName = "superadmin";
+        private const string SuperAdminEmail = "superadmin@gmail.com";
+        private const string SuperAdminPassword = "123!@#Qwe";
+        private const string SuperAdminFirstName = "Cgn";
+        private const string SuperAdminLastName = "Cgn";
+        private const string SuperAdminPhoneNumber = "0899999999";
+
         public static async Task<IApplicationBuilder> PrepareDataBase(this IApplicationBuilder app)
         {
             using var scope = app.ApplicationServices.CreateScope();
@@ -20,6 +33,7 @@ namespace ClubOverdose.Services
                 var context = services.GetRequiredService<ApplicationDbContext>();
                 var userManager = services.GetRequiredService<UserManager<Client>>();
                 var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                context.Database.Migrate();
                 //Sazdavane na roles
                 await SeedRolesAsync(roleManager);
                 //sazdavane na SUPER ADMIN s vsi4kite mu roli
@@ -28,24 +42,31 @@ namespace ClubOverdose.Services
             catch (Exception ex)
             {
                 var logger = loggerFactory.CreateLogger<Program>();
-                logger.LogError(ex, "An error occurred seeding the DB.");
+                try
+                {
+                    logger.LogError(ex, "An error occurred migrating or seeding the DB.");
+                }
+                catch
+                {
+                    // Preserve the original database startup failure if a logging provider is unavailable.
+                }
+
+                throw;
             }
 
             return app;
         }
         public static async Task SeedRolesAsync(RoleManager<IdentityRole> roleManager)
         {
-            //foreach (var role in Enum.GetValues(Roles))
-            //{
-            //                    var roleExist = await roleManager.RoleExistsAsync(role); 
-            //    if (!roleExist)
-            //    { }
-            //}
+            var roles = new[] { SuperAdminRoleName, AdminRoleName, ClientRoleName, GuestRoleName };
 
-            //Seed Roles
-            await roleManager.CreateAsync(new IdentityRole("Admin"));
-            await roleManager.CreateAsync(new IdentityRole("Client"));
-            await roleManager.CreateAsync(new IdentityRole("Guest"));
+            foreach (var role in roles)
+            {
+                if (!await roleManager.RoleExistsAsync(role))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
         }
 
         public static async Task SeedSuperAdminAsync(UserManager<Client> userManager)
@@ -53,11 +74,11 @@ namespace ClubOverdose.Services
             //Seed Default User
             var defaultUser = new Client
             {
-                UserName = "superadmin",
-                Email = "superadmin@gmail.com",
-                FirstName = "Cgn",
-                LastName = "Cgn",
-                PhoneNumber = "0899999999",
+                UserName = SuperAdminUserName,
+                Email = SuperAdminEmail,
+                FirstName = SuperAdminFirstName,
+                LastName = SuperAdminLastName,
+                PhoneNumber = SuperAdminPhoneNumber,
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };
@@ -65,12 +86,23 @@ namespace ClubOverdose.Services
             var user = await userManager.FindByEmailAsync(defaultUser.Email);
             if (user == null)
             {
-                var result = await userManager.CreateAsync(defaultUser, "123!@#Qwe");
+                var result = await userManager.CreateAsync(defaultUser, SuperAdminPassword);
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(defaultUser, "Admin");
-                    //await userManager.AddToRoleAsync(defaultUser, Roles.Guest.ToString());
-                    //await userManager.AddToRoleAsync(defaultUser, Roles.User.ToString());                    
+                    user = defaultUser;
+                }
+            }
+
+            if (user != null)
+            {
+                var superAdminRoles = new[] { SuperAdminRoleName, AdminRoleName };
+
+                foreach (var role in superAdminRoles)
+                {
+                    if (!await userManager.IsInRoleAsync(user, role))
+                    {
+                        await userManager.AddToRoleAsync(user, role);
+                    }
                 }
             }
         }

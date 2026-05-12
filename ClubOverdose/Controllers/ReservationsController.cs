@@ -53,11 +53,11 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Reservations/Create
-        public IActionResult Create()
+        public IActionResult Create(int? eventId)
         {
             //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Name");
-            return View();
+            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Name", eventId);
+            return View(new Reservation { EventId = eventId ?? 0 });
         }
 
         // POST: Reservations/Create
@@ -68,7 +68,7 @@ namespace ClubOverdose.Controllers
         public async Task<IActionResult> Create([Bind("EventId,NumberOfGuests")] Reservation reservation)
         {
             reservation.ReservationDate = DateTime.Now;
-            reservation.ClientId = _userManager.GetUserId(User);
+            reservation.ClientId = _userManager.GetUserId(User)!;
 
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace ClubOverdose.Controllers
             }
 
             reservation.ReservationDate = DateTime.Now;
-            reservation.ClientId = _userManager.GetUserId(User);
+            reservation.ClientId = _userManager.GetUserId(User)!;
 
             if (ModelState.IsValid)
             {

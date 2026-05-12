@@ -1,47 +1,55 @@
 ﻿@model ClubOverdose.Data.Reservation
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Reservation";
 }
 
-<h1>Edit</h1>
-
-<h4>Reservation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            @* <div class="form-group">
-                <label asp-for="ClientId" class="control-label"></label>
-                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
-                <span asp-validation-for="ClientId" class="text-danger"></span>
-            </div> *@
-            <div class="form-group">
-                <label asp-for="EventId" class="control-label"></label>
-                <select asp-for="EventId" class="form-control" asp-items="ViewBag.EventId"></select>
-                <span asp-validation-for="EventId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumberOfGuests" class="control-label"></label>
-                <input asp-for="NumberOfGuests" class="form-control" />
-                <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
-            </div>
-           @*  <div class="form-group">
-                <label asp-for="ReservationDate" class="control-label"></label>
-                <input asp-for="ReservationDate" class="form-control" />
-                <span asp-validation-for="ReservationDate" class="text-danger"></span>
-            </div> *@
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<section class="page-header">
+    <div class="container">
+        <h1>Edit Reservation</h1>
+        <p>Update the reservation details.</p>
     </div>
-</div>
+</section>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="form-card">
+                <form asp-action="Edit" class="custom-form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="Id" />
+                    @* <div class="mb-3">
+                        <label asp-for="ClientId" class="form-label"></label>
+                        <select asp-for="ClientId" class="form-select" asp-items="ViewBag.ClientId"></select>
+                        <span asp-validation-for="ClientId" class="text-danger"></span>
+                    </div> *@
+
+                    <div class="mb-3">
+                        <label asp-for="EventId" class="form-label"></label>
+                        <select asp-for="EventId" class="form-select" asp-items="ViewBag.EventId"></select>
+                        <span asp-validation-for="EventId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NumberOfGuests" class="form-label"></label>
+                        <input asp-for="NumberOfGuests" class="form-control" />
+                        <span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+                    </div>
+
+                    @*  <div class="mb-3">
+                        <label asp-for="ReservationDate" class="form-label"></label>
+                        <input asp-for="ReservationDate" class="form-control" />
+                        <span asp-validation-for="ReservationDate" class="text-danger"></span>
+                    </div> *@
+
+                    <div class="d-flex gap-2 flex-wrap mt-4">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-action="Index" class="btn btn-outline-light">Back to Reservations</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

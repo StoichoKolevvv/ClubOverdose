@@ -1,27 +1,35 @@
 ﻿@model ClubOverdose.Data.Type
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Type";
 }
 
-<h1>Delete</h1>
+<section class="page-header">
+    <div class="container">
+        <h1>Delete Type</h1>
+        <p>Review this drink type before removing it.</p>
+    </div>
+</section>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Type</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+<div class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="form-card">
+                <h3 class="mb-4 text-danger">Delete Confirmation</h3>
+
+                <div class="drink-detail-row">
+                    <span class="drink-label">@Html.DisplayNameFor(model => model.Name)</span>
+                    <span class="drink-value">@Html.DisplayFor(model => model.Name)</span>
+                </div>
+
+                <form asp-action="Delete" class="mt-4">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex gap-2 flex-wrap">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        <a asp-action="Index" class="btn btn-outline-light">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

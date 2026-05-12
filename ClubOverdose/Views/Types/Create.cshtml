@@ -1,31 +1,37 @@
 ﻿@model ClubOverdose.Data.Type
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Type";
 }
 
-<h1>Create</h1>
-
-<h4>Type</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<section class="page-header">
+    <div class="container">
+        <h1>Create Type</h1>
+        <p>Add a new drink type.</p>
     </div>
-</div>
+</section>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="container pb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="form-card">
+                <form asp-action="Create" class="custom-form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2 flex-wrap mt-4">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                        <a asp-action="Index" class="btn btn-outline-light">Back to Types</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

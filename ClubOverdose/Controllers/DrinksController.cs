@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClubOverdose.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ClubOverdose.Controllers
 {
@@ -46,6 +47,7 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Drinks/Create
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult Create()
         {
             ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Name");
@@ -58,6 +60,7 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Create([Bind("Name,TypeId,MenuId,Price,Volume")] Drink drink)
         {
             drink.DateAdded = DateTime.Now;
@@ -74,6 +77,7 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Drinks/Edit/5
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,6 +100,7 @@ namespace ClubOverdose.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,TypeId,MenuId,Price,Volume,DateAdded")] Drink drink)
         {
             if (id != drink.Id)
@@ -131,6 +136,7 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Drinks/Delete/5
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,6 +159,7 @@ namespace ClubOverdose.Controllers
         // POST: Drinks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var drink = await _context.Drinks.FindAsync(id);
