@@ -2,10 +2,12 @@
 
 @{
     ViewData["Title"] = "Menu";
-    var groupedDrinks = Model
-        .OrderBy(d => d.Types != null ? d.Types.Name : "Other")
+    var isSuperAdmin = User.IsInRole("SuperAdmin");
+    var groupedMenus = Model
+        .OrderBy(d => d.Menu != null ? d.Menu.Name : "Other Menu")
+        .ThenBy(d => d.Types != null ? d.Types.Name : "Other")
         .ThenBy(d => d.Name)
-        .GroupBy(d => d.Types != null ? d.Types.Name : "Other");
+        .GroupBy(d => new { d.MenuId, Name = d.Menu != null ? d.Menu.Name : "Other Menu" });
 }
 
 <section class="page-header">
@@ -18,45 +20,62 @@
 <div class="container pb-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="text-white m-0">Drinks Menu</h2>
-        <a asp-action="Create" class="btn btn-neon">Add Drink</a>
+        @if (isSuperAdmin)
+        {
+            <a asp-action="Create" class="btn btn-neon">Add Drink</a>
+        }
     </div>
 
-    @foreach (var group in groupedDrinks)
+    @if (!groupedMenus.Any())
+    {
+        <div class="menu-card">
+            <div class="menu-card-body">
+                <p class="menu-meta mb-0">No drinks are available yet.</p>
+            </div>
+        </div>
+    }
+
+    @foreach (var menuGroup in groupedMenus)
     {
         <div class="menu-section mb-5">
             <div class="menu-section-header mb-4">
-                <h2>@group.Key</h2>
+                <h2>@menuGroup.Key.Name</h2>
             </div>
 
-            <div class="row g-4">
-                @foreach (var item in group)
-                {
-                    <div class="col-md-4">
-                        <div class="menu-card">
-                            <div class="menu-card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <h3 class="mb-0">@item.Name</h3>
-                                    <span class="menu-price">@item.Price.ToString("0.00") лв.</span>
-                                </div>
+            @foreach (var typeGroup in menuGroup
+                    .OrderBy(d => d.Types != null ? d.Types.Name : "Other")
+                    .ThenBy(d => d.Name)
+                    .GroupBy(d => new { d.TypeId, Name = d.Types != null ? d.Types.Name : "Other" }))
+            {
+                <div class="mb-4">
+                    <h3 class="text-white mb-3">@typeGroup.Key.Name</h3>
 
-                                <p class="menu-meta mb-2">
-                                    <strong>Volume:</strong> @item.Volume ml
-                                </p>
+                    <div class="row g-3">
+                        @foreach (var item in typeGroup)
+                        {
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="menu-card">
+                                    <div class="menu-card-body">
+                                        <h4 class="text-white mb-2">@item.Name</h4>
+                                        <p class="menu-meta mb-3">@item.Volume ml</p>
 
-                                <p class="menu-meta mb-3">
-                                    <strong>Added:</strong> @item.DateAdded.ToString("dd MMM yyyy")
-                                </p>
+                                        <span class="menu-price">@item.Price.ToString("0.##") лв.</span>
 
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-light">Details</a>
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                                        @if (isSuperAdmin)
+                                        {
+                                            <div class="d-flex gap-2 flex-wrap mt-3">
+                                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-light">Details</a>
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     }
 </div>

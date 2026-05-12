@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XN+23u2nLf/IrKFrJ1iEO8yQSLqQ9zMHlfBIIFS3oGo=",
+  "Hash": "0lgbnBVgBSrmwykOU37Rqac1v+67p8CpDpBTGVwDkq0=",
   "Source": "ClubOverdose",
   "BasePath": "_content/ClubOverdose",
   "Mode": "Default",
@@ -5538,6 +5538,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Downloads\\ДЗИ\\NightSheng\\ClubOverdose\\ClubOverdose\\wwwroot\\Videos\\background-crop.mp4",
+      "SourceId": "ClubOverdose",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Downloads\\ДЗИ\\NightSheng\\ClubOverdose\\ClubOverdose\\wwwroot\\",
+      "BasePath": "_content/ClubOverdose",
+      "RelativePath": "Videos/background-crop#[.{fingerprint}]?.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "78qu3gnnwp",
+      "Integrity": "RzNzD+deLt5clLY0KR9sykGFgCFS7/LdwXz5N+mW3Lc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Videos\\background-crop.mp4"
     }
   ],
   "Endpoints": [
@@ -33961,6 +33982,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-1HkjQSVuV0/ji/X/lGeDTHeagBS0BwopMrHDQuwqgtU="
+        }
+      ]
+    },
+    {
+      "Route": "Videos/background-crop.78qu3gnnwp.mp4",
+      "AssetFile": "D:\\Downloads\\ДЗИ\\NightSheng\\ClubOverdose\\ClubOverdose\\wwwroot\\Videos\\background-crop.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "67404967"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RzNzD+deLt5clLY0KR9sykGFgCFS7/LdwXz5N+mW3Lc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 12 May 2026 18:37:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "78qu3gnnwp"
+        },
+        {
+          "Name": "label",
+          "Value": "Videos/background-crop.mp4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RzNzD+deLt5clLY0KR9sykGFgCFS7/LdwXz5N+mW3Lc="
+        }
+      ]
+    },
+    {
+      "Route": "Videos/background-crop.mp4",
+      "AssetFile": "D:\\Downloads\\ДЗИ\\NightSheng\\ClubOverdose\\ClubOverdose\\wwwroot\\Videos\\background-crop.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "67404967"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RzNzD+deLt5clLY0KR9sykGFgCFS7/LdwXz5N+mW3Lc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 12 May 2026 18:37:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RzNzD+deLt5clLY0KR9sykGFgCFS7/LdwXz5N+mW3Lc="
         }
       ]
     }

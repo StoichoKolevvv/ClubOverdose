@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClubOverdose.Data;
+using ClubOverdose.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -26,10 +27,78 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Reservations
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? eventId)
         {
-            var applicationDbContext = _context.Reservations.Include(r => r.Client).Include(r => r.Event);
-            return View(await applicationDbContext.ToListAsync());
+            var isSuperAdmin = User.IsInRole("SuperAdmin");
+
+            if (isSuperAdmin)
+            {
+                if (eventId == null)
+                {
+                    var events = await _context.Events
+                        .AsNoTracking()
+                        .OrderBy(e => e.EventDateTime)
+                        .ThenBy(e => e.Name)
+                        .Select(e => new EventReservationSummaryViewModel
+                        {
+                            Event = e,
+                            ReservationCount = e.Reservations.Count
+                        })
+                        .ToListAsync();
+
+                    return View(new ReservationsIndexViewModel
+                    {
+                        IsSuperAdmin = true,
+                        Events = events
+                    });
+                }
+
+                var selectedEvent = await _context.Events
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(e => e.Id == eventId.Value);
+
+                if (selectedEvent == null)
+                {
+                    return NotFound();
+                }
+
+                var eventReservations = await _context.Reservations
+                    .AsNoTracking()
+                    .Include(r => r.Client)
+                    .Include(r => r.Event)
+                    .Where(r => r.EventId == eventId.Value)
+                    .OrderByDescending(r => r.ReservationDate)
+                    .ToListAsync();
+
+                return View(new ReservationsIndexViewModel
+                {
+                    IsSuperAdmin = true,
+                    SelectedEventId = selectedEvent.Id,
+                    SelectedEventName = selectedEvent.Name,
+                    SelectedEventDateTime = selectedEvent.EventDateTime,
+                    Reservations = eventReservations
+                });
+            }
+
+            var currentUserId = _userManager.GetUserId(User);
+
+            if (string.IsNullOrEmpty(currentUserId))
+            {
+                return Challenge();
+            }
+
+            var userReservations = await _context.Reservations
+                .AsNoTracking()
+                .Include(r => r.Client)
+                .Include(r => r.Event)
+                .Where(r => r.ClientId == currentUserId)
+                .OrderByDescending(r => r.ReservationDate)
+                .ToListAsync();
+
+            return View(new ReservationsIndexViewModel
+            {
+                Reservations = userReservations
+            });
         }
 
         // GET: Reservations/Details/5
@@ -69,6 +138,7 @@ namespace ClubOverdose.Controllers
         {
             reservation.ReservationDate = DateTime.Now;
             reservation.ClientId = _userManager.GetUserId(User)!;
+            ClearServerManagedReservationValidation();
 
             if (ModelState.IsValid)
             {
@@ -115,6 +185,7 @@ namespace ClubOverdose.Controllers
 
             reservation.ReservationDate = DateTime.Now;
             reservation.ClientId = _userManager.GetUserId(User)!;
+            ClearServerManagedReservationValidation();
 
             if (ModelState.IsValid)
             {
@@ -179,6 +250,14 @@ namespace ClubOverdose.Controllers
         private bool ReservationExists(int id)
         {
             return _context.Reservations.Any(e => e.Id == id);
+        }
+
+        private void ClearServerManagedReservationValidation()
+        {
+            ModelState.Remove(nameof(Reservation.ClientId));
+            ModelState.Remove(nameof(Reservation.Client));
+            ModelState.Remove(nameof(Reservation.Event));
+            ModelState.Remove(nameof(Reservation.ReservationDate));
         }
     }
 }
