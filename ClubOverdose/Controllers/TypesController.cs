@@ -62,6 +62,8 @@ namespace ClubOverdose.Controllers
             {
                 _context.Add(@type);
                 await _context.SaveChangesAsync();
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Type created successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(@type);
@@ -115,6 +117,8 @@ namespace ClubOverdose.Controllers
                         throw;
                     }
                 }
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Type updated successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View(@type);
@@ -149,6 +153,8 @@ namespace ClubOverdose.Controllers
             if (@type != null)
             {
                 _context.Types.Remove(@type);
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Type deleted successfully";
             }
 
             await _context.SaveChangesAsync();

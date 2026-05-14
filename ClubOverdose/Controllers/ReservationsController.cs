@@ -144,6 +144,8 @@ namespace ClubOverdose.Controllers
             {
                 _context.Reservations.Add(reservation);
                 await _context.SaveChangesAsync();
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Reservation created successfully";
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
@@ -205,6 +207,8 @@ namespace ClubOverdose.Controllers
                         throw;
                     }
                 }
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Reservation updated successfully";
                 return RedirectToAction(nameof(Index));
             }
             //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
@@ -241,6 +245,8 @@ namespace ClubOverdose.Controllers
             if (reservation != null)
             {
                 _context.Reservations.Remove(reservation);
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Reservation deleted successfully";
             }
 
             await _context.SaveChangesAsync();

@@ -1,35 +1,53 @@
-﻿@model IEnumerable<ClubOverdose.Data.Type>
+@model IEnumerable<ClubOverdose.Data.Type>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Types";
 }
 
-<h1>Index</h1>
+<section class="page-header">
+    <div class="container">
+        <h1>Drink Types</h1>
+        <p>Manage the categories that organize the ClubOverdose menu.</p>
+    </div>
+</section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container pb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <h2 class="text-white m-0">All Types</h2>
+        <a asp-action="Create" class="btn btn-neon">Create New Type</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="form-card">
+            <p class="menu-meta mb-0">No drink types have been added yet.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-xl-4">
+                    <div class="menu-card">
+                        <div class="menu-card-body">
+                            <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                                <div>
+                                    <p class="menu-meta mb-1">Drink category</p>
+                                    <h3 class="mb-0">@Html.DisplayFor(modelItem => item.Name)</h3>
+                                </div>
+                                <span class="menu-price">Type</span>
+                            </div>
+
+                            <div class="d-flex gap-2 flex-wrap mt-4">
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-light">Details</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

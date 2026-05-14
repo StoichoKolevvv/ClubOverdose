@@ -33,71 +33,78 @@
     <div class="row justify-content-center">
         <div class="col-lg-10">
             <div class="form-card">
-                <div class="event-image mb-4">
-                    <img src="@(string.IsNullOrEmpty(Model.ImageUrl)
-                                      ? "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600&q=80"
-                                      : Model.ImageUrl)"
-                         alt="@Model.Name" />
-                    <div class="event-date">
-                        @Model.EventDateTime.ToString("dd MMM")
-                    </div>
-                </div>
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        @if (!string.IsNullOrEmpty(videoId))
+                        {
+                            <div class="ratio ratio-16x9 mb-4">
+                                <iframe class="rounded"
+                                        src="https://www.youtube-nocookie.com/embed/@videoId"
+                                        title="Event video"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="event-image mb-4">
+                                <img src="@(string.IsNullOrEmpty(Model.ImageUrl)
+                                                  ? "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1600&q=80"
+                                                  : Model.ImageUrl)"
+                                     alt="@Model.Name" />
+                                <div class="event-date">
+                                    @Model.EventDateTime.ToString("dd MMM")
+                                </div>
+                            </div>
+                        }
 
-                <h3 class="mb-3 text-white">About Event</h3>
+                        <h3 class="mb-3 text-white">About Event</h3>
 
-                @if (!string.IsNullOrWhiteSpace(description))
-                {
-                    <p class="menu-meta">@description</p>
-                }
-                else
-                {
-                    <p class="menu-meta">No description available for this event.</p>
-                }
-
-                @if (!string.IsNullOrEmpty(videoId))
-                {
-                    <div class="mt-4">
-                        <iframe class="w-100 rounded"
-                                height="350"
-                                src="https://www.youtube-nocookie.com/embed/@videoId"
-                                title="Event video"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                }
-
-                <div class="mt-4">
-                    <div class="drink-detail-row">
-                        <span class="drink-label">Date</span>
-                        <span class="drink-value">@Model.EventDateTime.ToString("f")</span>
+                        @if (!string.IsNullOrWhiteSpace(description))
+                        {
+                            <p class="menu-meta mb-0">@description</p>
+                        }
+                        else
+                        {
+                            <p class="menu-meta mb-0">No description available for this event.</p>
+                        }
                     </div>
 
-                    <div class="drink-detail-row">
-                        <span class="drink-label">Last Update</span>
-                        <span class="drink-value">@Model.LastUpdatedDate.ToString("dd MMM yyyy")</span>
+                    <div class="col-lg-5">
+                        <h3 class="mb-3 text-white">Event Info</h3>
+
+                        <div class="drink-detail-row">
+                            <span class="drink-label">Date</span>
+                            <span class="drink-value">@Model.EventDateTime.ToString("f")</span>
+                        </div>
+
+                        <div class="drink-detail-row">
+                            <span class="drink-label">Last Update</span>
+                            <span class="drink-value">@Model.LastUpdatedDate.ToString("dd MMM yyyy")</span>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <a asp-controller="Reservations"
+                               asp-action="Create"
+                               asp-route-eventId="@Model.Id"
+                               class="btn btn-neon">
+                                Book This Event
+                            </a>
+
+                            <a asp-action="Edit"
+                               asp-route-id="@Model.Id"
+                               class="btn btn-outline-light">
+                                Edit Event
+                            </a>
+
+                            <a asp-action="Index"
+                               class="btn btn-secondary">
+                                Go Back to Events
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="d-flex gap-2 flex-wrap mt-4">
-                    <a asp-controller="Reservations"
-                       asp-action="Create"
-                       asp-route-eventId="@Model.Id"
-                       class="btn btn-neon">
-                        Book This Event
-                    </a>
-
-                    <a asp-action="Edit"
-                       asp-route-id="@Model.Id"
-                       class="btn btn-outline-light">
-                        Edit Event
-                    </a>
-
-                    <a asp-action="Index"
-                       class="btn btn-secondary">
-                        Back to Events
-                    </a>
                 </div>
             </div>
         </div>

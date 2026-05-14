@@ -808,7 +808,6 @@ D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compre
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\3ezwwx7p9w-61n19gt1b8.gz
-D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\v4niw0v6my-z7s3owm2md.gz
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\m754cun4ti-t1cqhe9u97.gz
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\k5lrxlewa0-c2jlpeoesf.gz
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\yn3e0pry2a-sejl45xvog.gz
@@ -885,7 +884,6 @@ D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\refint
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\ClubOverdose.pdb
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\ClubOverdose.genruntimeconfig.cache
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\ref\ClubOverdose.dll
-D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\vznrf9hmve-7g6ppbm2ly.gz
 C:\Users\kryss\AppData\Local\Temp\ClubOverdoseBuild\appsettings.Development.json
 C:\Users\kryss\AppData\Local\Temp\ClubOverdoseBuild\appsettings.json
 C:\Users\kryss\AppData\Local\Temp\ClubOverdoseBuild\ClubOverdose.staticwebassets.runtime.json
@@ -896,3 +894,5 @@ C:\Users\kryss\AppData\Local\Temp\ClubOverdoseBuild\ClubOverdose.runtimeconfig.j
 C:\Users\kryss\AppData\Local\Temp\ClubOverdoseBuild\ClubOverdose.dll
 C:\Users\kryss\AppData\Local\Temp\ClubOverdoseBuild\ClubOverdose.pdb
 D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\vznrf9hmve-e33ucpjjvl.gz
+D:\Downloads\ДЗИ\NightSheng\ClubOverdose\ClubOverdose\obj\Debug\net9.0\compressed\v4niw0v6my-dqv3t4af3t.gz

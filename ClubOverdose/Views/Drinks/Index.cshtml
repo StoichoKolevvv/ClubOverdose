@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Menu";
     var isSuperAdmin = User.IsInRole("SuperAdmin");
+    var searchTerm = ViewData["SearchTerm"] as string;
+    var minPrice = ViewData["MinPrice"] as string;
+    var maxPrice = ViewData["MaxPrice"] as string;
     var groupedMenus = Model
         .OrderBy(d => d.Menu != null ? d.Menu.Name : "Other Menu")
         .ThenBy(d => d.Types != null ? d.Types.Name : "Other")
@@ -26,11 +29,56 @@
         }
     </div>
 
+    <div class="form-card mb-5">
+        <form asp-action="Index" method="get" class="custom-form">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label for="searchTerm" class="form-label">Search drink</label>
+                    <input id="searchTerm" name="searchTerm" class="form-control" value="@searchTerm" placeholder="Mojito, whiskey, cola..." />
+                </div>
+
+                <div class="col-md-3">
+                    <label for="menuId" class="form-label">Menu</label>
+                    <select id="menuId" name="menuId" class="form-select" asp-items="ViewBag.MenuFilterItems">
+                        <option value="">All menus</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="typeId" class="form-label">Type</label>
+                    <select id="typeId" name="typeId" class="form-select" asp-items="ViewBag.TypeFilterItems">
+                        <option value="">All types</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-neon w-100">Search</button>
+                </div>
+            </div>
+
+            <div class="row g-3 align-items-end mt-1">
+                <div class="col-md-3">
+                    <label for="minPrice" class="form-label">Min price</label>
+                    <input id="minPrice" name="minPrice" type="number" step="0.01" min="0" class="form-control" value="@minPrice" placeholder="0" />
+                </div>
+
+                <div class="col-md-3">
+                    <label for="maxPrice" class="form-label">Max price</label>
+                    <input id="maxPrice" name="maxPrice" type="number" step="0.01" min="0" class="form-control" value="@maxPrice" placeholder="50" />
+                </div>
+
+                <div class="col-md-3">
+                    <a asp-action="Index" class="btn btn-outline-light w-100">Clear filters</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
     @if (!groupedMenus.Any())
     {
         <div class="menu-card">
             <div class="menu-card-body">
-                <p class="menu-meta mb-0">No drinks are available yet.</p>
+                <p class="menu-meta mb-0">No drinks match the selected filters.</p>
             </div>
         </div>
     }

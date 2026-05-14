@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +21,47 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Drinks
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchTerm, int? menuId, int? typeId, decimal? minPrice, decimal? maxPrice)
         {
-            var applicationDbContext = _context.Drinks.Include(d => d.Menu).Include(d => d.Types);
-            return View(await applicationDbContext.ToListAsync());
+            var drinks = _context.Drinks
+                .Include(d => d.Menu)
+                .Include(d => d.Types)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                drinks = drinks.Where(d => d.Name.Contains(searchTerm));
+            }
+
+            if (menuId.HasValue)
+            {
+                drinks = drinks.Where(d => d.MenuId == menuId.Value);
+            }
+
+            if (typeId.HasValue)
+            {
+                drinks = drinks.Where(d => d.TypeId == typeId.Value);
+            }
+
+            if (minPrice.HasValue)
+            {
+                drinks = drinks.Where(d => d.Price >= minPrice.Value);
+            }
+
+            if (maxPrice.HasValue)
+            {
+                drinks = drinks.Where(d => d.Price <= maxPrice.Value);
+            }
+
+            ViewData["SearchTerm"] = searchTerm;
+            ViewData["SelectedMenuId"] = menuId;
+            ViewData["SelectedTypeId"] = typeId;
+            ViewData["MinPrice"] = minPrice?.ToString("0.##", CultureInfo.InvariantCulture);
+            ViewData["MaxPrice"] = maxPrice?.ToString("0.##", CultureInfo.InvariantCulture);
+            ViewData["MenuFilterItems"] = new SelectList(await _context.Menus.OrderBy(m => m.Name).ToListAsync(), "Id", "Name", menuId);
+            ViewData["TypeFilterItems"] = new SelectList(await _context.Types.OrderBy(t => t.Name).ToListAsync(), "Id", "Name", typeId);
+
+            return View(await drinks.ToListAsync());
         }
 
         // GET: Drinks/Details/5
@@ -69,6 +107,8 @@ namespace ClubOverdose.Controllers
             {
                 _context.Add(drink);
                 await _context.SaveChangesAsync();
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Drink created successfully";
                 return RedirectToAction(nameof(Index));
             }
             ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Name", drink.MenuId);
@@ -128,6 +168,8 @@ namespace ClubOverdose.Controllers
                         throw;
                     }
                 }
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Drink updated successfully";
                 return RedirectToAction(nameof(Index));
             }
             ViewData["MenuId"] = new SelectList(_context.Menus, "Id", "Name", drink.MenuId);
@@ -166,6 +208,8 @@ namespace ClubOverdose.Controllers
             if (drink != null)
             {
                 _context.Drinks.Remove(drink);
+                TempData["ToastType"] = "success";
+                TempData["ToastMessage"] = "Drink deleted successfully";
             }
 
             await _context.SaveChangesAsync();

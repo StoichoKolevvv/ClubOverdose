@@ -1,0 +1,18 @@
+@{
+    var toastMessage = TempData["ToastMessage"] as string;
+    var toastType = (TempData["ToastType"] as string ?? "success").ToLowerInvariant();
+}
+
+@if (!string.IsNullOrWhiteSpace(toastMessage))
+{
+    <div class="club-toast-container" aria-live="polite" aria-atomic="true">
+        <div class="club-toast club-toast-@toastType" role="status">
+            <div class="club-toast-glow"></div>
+            <div class="club-toast-content">
+                <strong class="club-toast-title">@toastType</strong>
+                <span class="club-toast-message">@toastMessage</span>
+            </div>
+            <button type="button" class="club-toast-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+}

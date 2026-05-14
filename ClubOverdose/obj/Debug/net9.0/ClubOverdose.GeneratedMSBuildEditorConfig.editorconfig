@@ -52,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Drinks/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -158,6 +162,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Shared/_ToastNotifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub2FzdE5vdGlmaWNhdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Downloads/ДЗИ/NightSheng/ClubOverdose/ClubOverdose/Views/Shared/_ValidationScriptsPartial.cshtml]

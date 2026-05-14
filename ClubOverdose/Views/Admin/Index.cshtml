@@ -1,0 +1,172 @@
+@model AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Panel";
+
+    var stats = new[]
+    {
+        new { Label = "Total Events", Value = Model.TotalEvents },
+        new { Label = "Total Reservations", Value = Model.TotalReservations },
+        new { Label = "Total Drinks", Value = Model.TotalDrinks },
+        new { Label = "Total Menus", Value = Model.TotalMenus },
+        new { Label = "Total Types", Value = Model.TotalTypes },
+        new { Label = "Total Users", Value = Model.TotalUsers },
+        new { Label = "Upcoming Events", Value = Model.UpcomingEvents },
+        new { Label = "Upcoming Reservations", Value = Model.UpcomingEventReservations }
+    };
+}
+
+<section class="page-header">
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <p>Monitor club activity and jump into management tools.</p>
+    </div>
+</section>
+
+<div class="container pb-5">
+    <div class="row g-3 mb-5">
+        @foreach (var stat in stats)
+        {
+            <div class="col-sm-6 col-lg-3">
+                <div class="menu-card">
+                    <div class="menu-card-body">
+                        <p class="menu-meta mb-2">@stat.Label</p>
+                        <h2 class="text-white mb-0">@stat.Value</h2>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="menu-section mb-5">
+        <div class="menu-section-header mb-4">
+            <h2>Management</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-4">
+                <div class="form-card">
+                    <h3>Events management</h3>
+                    <p class="menu-meta">Create, update, and manage upcoming club nights.</p>
+                    <a asp-controller="Events" asp-action="Index" class="btn btn-neon">Open Events</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="form-card">
+                    <h3>Drinks management</h3>
+                    <p class="menu-meta">Manage drink items, prices, menus, and types.</p>
+                    <a asp-controller="Drinks" asp-action="Index" class="btn btn-neon">Open Drinks</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="form-card">
+                    <h3>Menus management</h3>
+                    <p class="menu-meta">Organize the public menu sections.</p>
+                    <a asp-controller="Menus" asp-action="Index" class="btn btn-neon">Open Menus</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="form-card">
+                    <h3>Types management</h3>
+                    <p class="menu-meta">Maintain drink categories for filtering and grouping.</p>
+                    <a asp-controller="Types" asp-action="Index" class="btn btn-neon">Open Types</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="form-card">
+                    <h3>Reservations management</h3>
+                    <p class="menu-meta">Review reservations by event and manage bookings.</p>
+                    <a asp-controller="Reservations" asp-action="Index" class="btn btn-neon">Open Reservations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="form-card">
+                <h3 class="mb-4">Recent Reservations</h3>
+
+                @if (!Model.RecentReservations.Any())
+                {
+                    <p class="menu-meta mb-0">No recent reservations yet.</p>
+                }
+                else
+                {
+                    <div class="d-flex flex-column gap-3">
+                        @foreach (var reservation in Model.RecentReservations)
+                        {
+                            <div class="menu-card">
+                                <div class="menu-card-body">
+                                    <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap">
+                                        <div>
+                                            <h4 class="text-white mb-1">@reservation.EventName</h4>
+                                            <p class="menu-meta mb-1">@reservation.ClientName</p>
+                                            <p class="menu-meta mb-0">@reservation.ReservationDate.ToString("dd MMM yyyy, HH:mm")</p>
+                                        </div>
+
+                                        <div class="text-end">
+                                            <span class="menu-price">@reservation.NumberOfGuests guests</span>
+                                            <a asp-controller="Reservations"
+                                               asp-action="Details"
+                                               asp-route-id="@reservation.Id"
+                                               class="btn btn-sm btn-outline-light mt-3">
+                                                View
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="form-card">
+                <h3 class="mb-4">Upcoming Events</h3>
+
+                @if (!Model.UpcomingEventItems.Any())
+                {
+                    <p class="menu-meta mb-0">No upcoming events yet.</p>
+                }
+                else
+                {
+                    <div class="row g-3">
+                        @foreach (var item in Model.UpcomingEventItems)
+                        {
+                            <div class="col-md-6">
+                                <div class="event-card">
+                                    <div class="event-image">
+                                        <img src="@(string.IsNullOrEmpty(item.ImageUrl)
+                                                          ? "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80"
+                                                          : item.ImageUrl)"
+                                             alt="@item.Name" />
+                                        <div class="event-date">@item.EventDateTime.ToString("dd MMM")</div>
+                                    </div>
+
+                                    <div class="event-body">
+                                        <h3 class="text-white">@item.Name</h3>
+                                        <div class="event-info mb-2">@item.EventDateTime.ToString("dd MMM yyyy, HH:mm")</div>
+                                        <p class="menu-meta">@item.ReservationCount reservations</p>
+                                        <a asp-controller="Events"
+                                           asp-action="Details"
+                                           asp-route-id="@item.Id"
+                                           class="btn btn-sm btn-outline-light">
+                                            View Event
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
