@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Type Details";
+    var isSuperAdmin = User.IsInRole("SuperAdmin");
 }
 
 <section class="page-header">
@@ -23,7 +24,10 @@
                 </div>
 
                 <div class="d-flex gap-2 flex-wrap mt-4">
-                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-neon">Edit Type</a>
+                    @if (isSuperAdmin)
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-neon">Edit Type</a>
+                    }
                     <a asp-action="Index" class="btn btn-outline-light">Back to Types</a>
                 </div>
             </div>

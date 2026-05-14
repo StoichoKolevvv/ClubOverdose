@@ -5,7 +5,7 @@
     var isEventDashboard = Model.IsSuperAdmin && Model.SelectedEventId == null;
     var pageSubtitle = isEventDashboard
         ? "Choose an event to review its reservations."
-        : "Manage booked spots for upcoming ClubOverdose nights.";
+        : "Manage booked spots for upcoming NightSheng nights.";
     var listTitle = Model.IsSuperAdmin && Model.SelectedEventId != null
         ? $"Reservations for {Model.SelectedEventName}"
         : "My Reservations";

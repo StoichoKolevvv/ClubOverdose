@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Event Details";
+    var isSuperAdmin = User.IsInRole("SuperAdmin");
     var description = Model.Description ?? "";
     string? videoId = null;
 
@@ -93,11 +94,14 @@
                                 Book This Event
                             </a>
 
-                            <a asp-action="Edit"
-                               asp-route-id="@Model.Id"
-                               class="btn btn-outline-light">
-                                Edit Event
-                            </a>
+                            @if (isSuperAdmin)
+                            {
+                                <a asp-action="Edit"
+                                   asp-route-id="@Model.Id"
+                                   class="btn btn-outline-light">
+                                    Edit Event
+                                </a>
+                            }
 
                             <a asp-action="Index"
                                class="btn btn-secondary">

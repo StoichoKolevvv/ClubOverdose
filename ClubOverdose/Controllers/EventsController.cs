@@ -20,9 +20,26 @@ namespace ClubOverdose.Controllers
         }
 
         // GET: Events
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(DateTime? fromDate, DateTime? toDate)
         {
-            return View(await _context.Events.ToListAsync());
+            var events = _context.Events.AsQueryable();
+
+            if (fromDate.HasValue)
+            {
+                events = events.Where(e => e.EventDateTime >= fromDate.Value.Date);
+            }
+
+            if (toDate.HasValue)
+            {
+                events = events.Where(e => e.EventDateTime < toDate.Value.Date.AddDays(1));
+            }
+
+            ViewData["FromDate"] = fromDate?.ToString("yyyy-MM-dd");
+            ViewData["ToDate"] = toDate?.ToString("yyyy-MM-dd");
+
+            return View(await events
+                .OrderBy(e => e.EventDateTime)
+                .ToListAsync());
         }
 
         // GET: Events/Details/5

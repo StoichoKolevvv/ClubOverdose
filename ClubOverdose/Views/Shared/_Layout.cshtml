@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ClubOverdose</title>
+    <title>@ViewData["Title"] - NightSheng</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -18,7 +18,7 @@
         <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark custom-navbar">
             <div class="container">
                 <a class="navbar-brand logo-wrapper" asp-controller="Home" asp-action="Index">
-                    <img src="~/Images/logo.png" alt="ClubOverdose Logo" class="logo-img" />
+                    <img src="~/Images/logo.png" alt="NightSheng Logo" class="logo-img" />
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -46,6 +46,12 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Gallery">Gallery</a>
                         </li>
+                        @if (User.Identity?.IsAuthenticated == true && !User.IsInRole("SuperAdmin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Reservations" asp-action="Index">My Reservations</a>
+                            </li>
+                        }
                         @if (User.IsInRole("SuperAdmin"))
                         {
                             <li class="nav-item">
@@ -70,7 +76,7 @@
 
     <footer class="footer-dark mt-5">
         <div class="container text-center">
-            <p class="mb-1">© @DateTime.Now.Year - ClubOverdose</p>
+            <p class="mb-1">© @DateTime.Now.Year - NightSheng</p>
             <p class="mb-0">Music. Lights. Energy. Nightlife without limits.</p>
         </div>
     </footer>
